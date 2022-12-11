@@ -7,7 +7,11 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App saludo="Learn React with Platzi"/>
+    <App saludo="Learn React with Platzi">
+      <h1>
+        Children
+      </h1>
+    </App>
   </React.StrictMode>
 );
 
