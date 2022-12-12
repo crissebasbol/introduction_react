@@ -13,7 +13,7 @@ const default_todo_list = [
   },
   {
     text: "Finish course React",
-    completed: true,
+    completed: false,
   },
   {
     text: "Make design",
@@ -40,6 +40,20 @@ function App(props) {
     });
   }
 
+  const completeTodo = (text) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
+  const deleteTodo = (text) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
+
   return (
     <React.Fragment>
       <TodoCounter total={totalTodos} completed={completedTodos} />
@@ -52,6 +66,8 @@ function App(props) {
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
           />
         ))}
       </TodoList>
