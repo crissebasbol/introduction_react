@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+// import "./App.css";
 import { CreateTodoButton } from "./CreateTodoButton";
 import { TodoCounter } from "./TodoCounter";
 import { TodoItem } from "./TodoItem";
@@ -9,7 +9,7 @@ import { TodoSearch } from "./TodoSearch";
 const todo_list = [
   {
     text: "Buy onions",
-    completed: false,
+    completed: true,
   },
   {
     text: "Finish course React",
@@ -30,7 +30,11 @@ function App(props) {
 
       <TodoList>
         {todo_list.map((todo) => (
-          <TodoItem key={todo.text} text={todo.text} />
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+          />
         ))}
       </TodoList>
 
